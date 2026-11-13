@@ -11,6 +11,7 @@ conn = sqlite3.connect(project_dir / "climate.db")
 cursor = conn.cursor()
 
 # Create the table using schema.sql
+cursor.execute("DROP TABLE IF EXISTS state_climate")
 with open(project_dir / "schema.sql", encoding="utf-8") as file:
     conn.executescript(file.read())
 
